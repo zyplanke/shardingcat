@@ -1,0 +1,11 @@
+#工程版本号(等于Maven工程配置的版本号)
+ProjectVersion  @projectversion@
+
+#编译打包时间(UTC时，与东八区时有8小时差异)
+MavenBuildUtcTime  @mavenbuildutctime@
+
+#编译打包时的Git版本Hash值
+GitVersion  @gitcommitid@
+
+#Git仓库URL
+GitRepositoryUrl  @gitrepourl@

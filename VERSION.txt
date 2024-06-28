@@ -1,0 +1,11 @@
+#工程版本号(等于Maven工程配置的版本号)
+ProjectVersion  1.0_20240628
+
+#编译打包时间(UTC时，与东八区时有8小时差异)
+MavenBuildUtcTime  2024-06-28 01:57:26 +0000
+
+#编译打包时的Git版本Hash值
+GitVersion  44cfb7246c60d6f83e5d596727c0ed7f0c4fc81e
+
+#Git仓库URL
+GitRepositoryUrl  https://github.com/zyplanke/shardingcat.git
