@@ -4,6 +4,7 @@
 .gradle
 bin/
 tmp/
+tmlogs/
 *.tmp
 *.bak
 *.swp
