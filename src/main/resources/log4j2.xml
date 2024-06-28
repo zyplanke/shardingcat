@@ -5,8 +5,8 @@
             <PatternLayout pattern="%d [%-5p][%t] %m %throwable{full} (%C:%F:%L) %n"/>
         </Console>
 
-        <RollingFile name="RollingFile" fileName="../logs/mycat.log"
-                     filePattern="logs/$${date:yyyy-MM}/mycat-%d{MM-dd}-%i.log.gz">
+        <RollingFile name="RollingFile" fileName="logs/shardingcat.log"
+                     filePattern="logs/$${date:yyyy-MM}/shardingcat-%d{MM-dd}-%i.log.gz">
             <PatternLayout>
                 <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %5p [%t] (%l) - %m%n</Pattern>
             </PatternLayout>
@@ -18,13 +18,13 @@
         </RollingFile>
     </Appenders>
     <Loggers>
-        <!--<AsyncLogger name="io.mycat" level="info" includeLocation="true" additivity="false">-->
+        <!--<AsyncLogger name="io.shardingcat" level="info" includeLocation="true" additivity="false">-->
             <!--<AppenderRef ref="Console"/>-->
             <!--<AppenderRef ref="RollingFile"/>-->
         <!--</AsyncLogger>-->
-        <asyncRoot level="debug" includeLocation="true">
+        <asyncRoot level="info" includeLocation="true">
 
-            <AppenderRef ref="Console" />
+<!--            <AppenderRef ref="Console" />-->
             <AppenderRef ref="RollingFile"/>
 
         </asyncRoot>

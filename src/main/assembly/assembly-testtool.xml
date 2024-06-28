@@ -1,31 +1,30 @@
-<assembly
-		xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.2.0"
+		  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		  xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.2.0 http://maven.apache.org/xsd/assembly-2.2.0.xsd">
 	<id>java${java.version}-testtool</id>
-	<includeBaseDirectory>false</includeBaseDirectory>
 	<formats>
 		<format>tar.gz</format>
 	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
 	<fileSets>
 		<fileSet>
-		<directory>src/main/assembly/testtool</directory>
-			<outputDirectory>mycat/bin</outputDirectory>
+			<directory>src/main/assembly/testtool</directory>
+			<outputDirectory>shardingcat/bin</outputDirectory>
 			<includes>
 				<include>**/*</include>
 			</includes>
 			<fileMode>0755</fileMode>
 		</fileSet>
-        <fileSet>
-            <directory>${basedir}</directory>
-            <outputDirectory>mycat/</outputDirectory>
-            <includes>
-                <include>version.txt</include>
-            </includes>
-        </fileSet>
+		<fileSet>
+			<directory>${basedir}</directory>
+			<outputDirectory>shardingcat/</outputDirectory>
+			<includes>
+				<include>VERSION.txt</include>
+			</includes>
+		</fileSet>
 		<fileSet>
 			<directory>target</directory>
-			<outputDirectory>mycat/lib</outputDirectory>
+			<outputDirectory>shardingcat/lib</outputDirectory>
 			<includes>
 				<include>**tests.jar</include>
 			</includes>
@@ -34,12 +33,11 @@
 	<dependencySets>
 		<dependencySet>
 			<scope>test</scope>
-			<outputDirectory>mycat/lib</outputDirectory>
+			<outputDirectory>shardingcat/lib</outputDirectory>
 			<includes>
 				<include>mysql-con*</include>
-				<include>junit*</include>				
+				<include>junit*</include>
 			</includes>
 		</dependencySet>
-		
 	</dependencySets>
 </assembly>

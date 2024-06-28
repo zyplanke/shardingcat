@@ -1,59 +1,57 @@
-<assembly
-	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.2.0"
+		  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		  xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.2.0 http://maven.apache.org/xsd/assembly-2.2.0.xsd">
 	<id>java${java.version}-linux</id>
-	<includeBaseDirectory>false</includeBaseDirectory>
 	<formats>
 		<format>tar.gz</format>
 	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
 	<fileSets>
 		<fileSet>
-			<directory>target/generated-resources/appassembler/jsw/mycat/bin</directory>
-			<outputDirectory>mycat/bin</outputDirectory>
+			<directory>target/appassembler/jsw/shardingcat/bin</directory>
+			<outputDirectory>shardingcat/bin</outputDirectory>
             <fileMode>0755</fileMode>
             <includes>
-				<include>mycat</include>
+				<include>shardingcat</include>
 				<include>wrapper-linux*</include>
 			</includes>
 		</fileSet>
 		<fileSet>
-			<directory>target/generated-resources/appassembler/jsw/mycat/lib</directory>
-			<outputDirectory>mycat/lib</outputDirectory>
+			<directory>target/appassembler/jsw/shardingcat/lib</directory>
+			<outputDirectory>shardingcat/lib</outputDirectory>
 			<includes>
 				<include>*.jar</include>
 				<include>libwrapper-linux*</include>
 			</includes>
 		</fileSet>
 		<fileSet>
-			<directory>target/generated-resources/appassembler/jsw/mycat/conf</directory>
-			<outputDirectory>mycat/conf</outputDirectory>
+			<directory>target/appassembler/jsw/shardingcat/conf</directory>
+			<outputDirectory>shardingcat/conf</outputDirectory>
 			<includes>
 				<include>*</include>
 			</includes>
 		</fileSet>
 		<fileSet>
 			<directory>src/main/resources</directory>
-			<outputDirectory>mycat/conf</outputDirectory>
+			<outputDirectory>shardingcat/conf</outputDirectory>
 			<excludes>
 				<exclude>*.dtd</exclude>
-				<exclude>log4j*</exclude>
 			</excludes>
 		</fileSet>
         <fileSet>
             <directory>${basedir}</directory>
-            <outputDirectory>mycat/</outputDirectory>
+            <outputDirectory>shardingcat/</outputDirectory>
             <includes>
-                <include>version.txt</include>
+                <include>VERSION.txt</include>
             </includes>
         </fileSet>
-		<fileSet>
-			<directory>src/main/assembly/conf</directory>
-			<outputDirectory>mycat/conf</outputDirectory>
-		</fileSet>
+<!--		<fileSet>-->
+<!--			<directory>src/main/assembly/conf</directory>-->
+<!--			<outputDirectory>shardingcat/conf</outputDirectory>-->
+<!--		</fileSet>-->
 		<fileSet>
 			<directory>src/main/assembly/bin</directory>
-			<outputDirectory>mycat/bin</outputDirectory>
+			<outputDirectory>shardingcat/bin</outputDirectory>
 			<fileMode>0755</fileMode>
 			<includes>
 				<include>*.sh</include>
@@ -61,18 +59,27 @@
 		</fileSet>
 		<fileSet>
 			<directory>${basedir}/logs</directory>
-			<outputDirectory>mycat/logs</outputDirectory>
+			<outputDirectory>shardingcat/logs</outputDirectory>
 			<excludes>
 				<exclude>**/*</exclude>
 			</excludes>
 		</fileSet>
         <fileSet>
-            <directory>${basedir}/catlet</directory>
-            <outputDirectory>mycat/catlet</outputDirectory>
+			<!-- 创建空目录: 目录catlei用于customer Catlet class files-->
+			<directory>${basedir}/catlet</directory>
+			<outputDirectory>shardingcat/catlet</outputDirectory>
             <excludes>
                 <exclude>**/*</exclude>
             </excludes>
         </fileSet>
+		<fileSet>
+			<!-- 创建空目录: 目录gclogs用于jvm gc的日志输出 -->
+			<directory>${basedir}/catlet</directory>
+			<outputDirectory>shardingcat/gclogs</outputDirectory>
+			<excludes>
+				<exclude>**/*</exclude>
+			</excludes>
+		</fileSet>
 	</fileSets>
 
 </assembly>

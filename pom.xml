@@ -1,104 +1,93 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>io.shardingcat</groupId>
-	<artifactId>shardingcat</artifactId>
-	<version>1.0_20240628</version>
-	<packaging>jar</packaging>
-	<name>shardingcat</name>
-	<description>The project of shardingcat-server</description>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.shardingcat</groupId>
+    <artifactId>shardingcat</artifactId>
+    <version>1.0_20240628</version>
+    <packaging>jar</packaging>
+    <name>shardingcat</name>
+    <description>The project of shardingcat-server</description>
 
-	<properties>
-		<java.version>1.8</java.version>
-		<maven.compiler.source>${java.version}</maven.compiler.source>
-		<maven.compiler.target>${java.version}</maven.compiler.target>
-		<app.encoding>UTF-8</app.encoding>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<!-- 将Maven build构建时间设置指定格式（此处为UTC+0000时间，不是东八区时），以供后续使用${maven.build.timestamp}变量 -->
-		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss Z</maven.build.timestamp.format>
-		<version.template.file>VERSION.TXT.template</version.template.file>
-		<version.file>VERSION.TXT</version.file>
-	</properties>
-
-	<repositories>
-		<repository>
-			<id>alimaven</id>
-			<name>aliyun maven阿里云公共仓库</name>
-			<url>https://maven.aliyun.com/repository/public</url>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>alimaven</id>
-			<name>aliyun maven阿里云公共仓库</name>
-			<url>https://maven.aliyun.com/repository/public</url>
-		</pluginRepository>
-	</pluginRepositories>
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <app.encoding>UTF-8</app.encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- 将Maven build构建时间设置指定格式（此处为UTC+0000时间，不是东八区时），以供后续使用${maven.build.timestamp}变量 -->
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss Z</maven.build.timestamp.format>
+        <version.template.file>VERSION.TXT.template</version.template.file>
+        <version.file>VERSION.TXT</version.file>
+    </properties>
 
 
-	<dependencies>
-		<!-- <dependency> <groupId>com.google.guava</groupId> <artifactId>guava-parent</artifactId> 
-			<version>18.0</version> </dependency> -->
-		<dependency>
-			<groupId>org.mongodb</groupId>
-			<artifactId>mongo-java-driver</artifactId>
-			<version>2.11.4</version>
-		</dependency>
-		<dependency>
-			<groupId>org.iq80.leveldb</groupId>
-			<artifactId>leveldb</artifactId>
-			<version>0.7</version>
-		</dependency>
-		<dependency>
-			<groupId>org.iq80.leveldb</groupId>
-			<artifactId>leveldb-api</artifactId>
-			<version>0.7</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>19.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>druid</artifactId>
-			<version>1.0.26</version>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.35</version>
-		</dependency>
-		<dependency>
-			<groupId>net.sf.ehcache</groupId>
-			<artifactId>ehcache-core</artifactId>
-			<version>2.6.11</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mapdb</groupId>
-			<artifactId>mapdb</artifactId>
-			<version>1.0.7</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.4</version>
-			<scope>provided</scope>
-		</dependency>
+    <repositories>
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven阿里云公共仓库</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>alimaven</id>
+            <name>aliyun maven阿里云公共仓库</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+
+    <dependencies>
         <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity</artifactId>
-            <version>1.7</version>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.12.8</version>
         </dependency>
-		<dependency>
-			<groupId>org.codehaus.jsr166-mirror</groupId>
-			<artifactId>jsr166y</artifactId>
-			<version>1.7.0</version>
-			<scope>test</scope>
-		</dependency>
+        <dependency>
+            <groupId>org.iq80.leveldb</groupId>
+            <artifactId>leveldb-api</artifactId>
+            <version>0.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.iq80.leveldb</groupId>
+            <artifactId>leveldb</artifactId>
+            <version>0.12</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>32.1.3-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.26</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.4</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jsr166-mirror</groupId>
+            <artifactId>jsr166y</artifactId>
+            <version>1.7.0</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>com.lmax</groupId>
             <artifactId>disruptor</artifactId>
@@ -107,442 +96,462 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
-            <version>2.5</version>
+            <version>2.23.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.5</version>
+            <version>2.23.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-1.2-api</artifactId>
-            <version>2.5</version>
+            <version>2.23.1</version>
         </dependency>
-		<dependency>
-			<groupId>com.univocity</groupId>
-			<artifactId>univocity-parsers</artifactId>
-			<version>2.2.1</version>
-			<type>jar</type>
-		</dependency>
-
-
-		<dependency>
-			<groupId>com.sequoiadb</groupId>
-			<artifactId>sequoiadb-driver</artifactId>
-			<version>1.12</version>
-		</dependency>
-
-
-		<!--DOM4J FOR XML -->
-		<dependency>
-			<groupId>dom4j</groupId>
-			<artifactId>dom4j</artifactId>
-			<version>1.6.1</version>
-			<exclusions>
-				<exclusion>
-					<groupId>xml-apis</groupId>
-					<artifactId>xml-apis</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
-		<!-- zookeeper -->
-		<dependency>
-			<groupId>org.apache.curator</groupId>
-			<artifactId>curator-framework</artifactId>
-			<version>2.11.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.curator</groupId>
-			<artifactId>curator-recipes</artifactId>
-			<version>2.11.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.curator</groupId>
-			<artifactId>curator-test</artifactId>
-			<version>2.11.0</version>
-			<scope>test</scope>
+        <dependency>
+            <groupId>com.univocity</groupId>
+            <artifactId>univocity-parsers</artifactId>
+            <version>2.8.4</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>2.6.11</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mapdb</groupId>
+            <artifactId>mapdb</artifactId>
+            <version>1.0.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sequoiadb</groupId>
+            <artifactId>sequoiadb-driver</artifactId>
+            <version>5.10</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.3</version>
+        </dependency>
+        <!--DOM4J FOR XML -->
+        <dependency>
+            <groupId>org.dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>2.1.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>xml-apis</groupId>
+                    <artifactId>xml-apis</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- zookeeper -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-test</artifactId>
+            <version>4.2.0</version>
+            <scope>test</scope>
             <exclusions>
                 <exclusion>
                     <groupId>log4j</groupId>
                     <artifactId>log4j</artifactId>
                 </exclusion>
             </exclusions>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-			<version>1.2.12</version>
-		</dependency>
-		<!-- joda日期处理工具 -->
+        </dependency>
         <dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-			<version>2.9.3</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.github.shyiko</groupId>
-			<artifactId>mysql-binlog-connector-java</artifactId>
-			<version>0.6.0</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>1.8.5</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.code.findbugs</groupId>
-			<artifactId>jsr305</artifactId>
-			<version>2.0.3</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.esotericsoftware.kryo</groupId>
-			<artifactId>kryo</artifactId>
-			<version>2.10</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-library</artifactId>
-			<version>1.3</version>
-		</dependency>
-
-
-		<!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>2.6</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.netty/netty-buffer -->
-		<dependency>
-			<groupId>io.netty</groupId>
-			<artifactId>netty-buffer</artifactId>
-			<version>4.1.9.Final</version>
-		</dependency>
-	</dependencies>
-
-
-
-	<issueManagement>
-		<system>JIRA</system>
-		<url>http://io.mycat</url>
-	</issueManagement>
-
-	<build>
-		<!-- finalName>${artifactId}-${version}-${buildNumber}</finalName -->
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<excludes>
-					<exclude>**/.svn/**</exclude>
-				</excludes>
-			</resource>
-			<resource>
-				<directory>${basedir}</directory>
-				<includes>
-					<include>${version.file}</include>
-				</includes>
-			</resource>
-		</resources>
-		<testResources>
-			<testResource>
-				<directory>src/test/resources</directory>
-				<excludes>
-					<exclude>**/.svn/**</exclude>
-				</excludes>
-			</testResource>
-		</testResources>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>com.google.code.maven-replacer-plugin</groupId>
-										<artifactId>replacer</artifactId>
-										<versionRange>[1.0.0,)</versionRange>
-										<goals>
-											<goal>replace</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore />
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-
-		<plugins>
-			<!-- 为了能在Maven中可以获得Git信息，所以增加此插件 -->
-			<plugin>
-				<groupId>pl.project13.maven</groupId>
-				<artifactId>git-commit-id-plugin</artifactId>
-				<version>4.0.0</version>
-				<executions>
-					<execution>
-						<id>get-the-git-commit-id-info</id>
-						<goals>
-							<goal>revision</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>com.google.code.maven-replacer-plugin</groupId>
-				<artifactId>replacer</artifactId>
-				<version>1.5.3</version>
-				<executions>
-					<execution>
-						<id>generate-version-txt-file</id>
-						<phase>process-sources</phase>
-						<goals>
-							<goal>replace</goal>
-						</goals>
-						<configuration>
-							<file>${project.basedir}/${version.template.file}</file>
-							<outputFile>${project.basedir}/${version.file}</outputFile>
-							<replacements>
-								<replacement>
-									<token>@projectversion@</token>
-									<value>${project.version}</value>
-								</replacement>
-								<replacement>
-									<token>@mavenbuildutctime@</token>
-									<value>${maven.build.timestamp}</value>
-								</replacement>
-								<replacement>
-									<token>@gitcommitid@</token>
-									<value>${git.commit.id}</value>
-								</replacement>
-								<replacement>
-									<token>@gitrepourl@</token>
-									<value>https://github.com/zyplanke/shardingcat.git</value>
-								</replacement>
-							</replacements>
-						</configuration>
-					</execution>
-					<execution>
-						<id>generate-version-jar-file</id>
-						<phase>process-sources</phase>
-						<goals>
-							<goal>replace</goal>
-						</goals>
-						<configuration>
-							<file>${project.basedir}/src/main/java/io/mycat/config/Versions.template</file>
-							<outputFile>${project.basedir}/src/main/java/io/mycat/config/Versions.java</outputFile>
-							<replacements>
-								<replacement>
-									<token>@server-version@</token>
-									<value>mycat-${project.version}-${maven.build.timestamp}</value>
-								</replacement>
-							</replacements>
-						</configuration>
-					</execution>
-				</executions>
-
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-					<encoding>${app.encoding}</encoding>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.1.2</version>
-				<configuration>
-					<encoding>${app.encoding}</encoding>
-					<attach>true</attach>
-				</configuration>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar-no-fork</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>**/.svn/**</exclude>
-					</excludes>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>test-jar</goal>
-						</goals>
-						<!-- configuration> <finalName>${project.build.finalName}-${buildNumber}</finalName> 
-							</configuration -->
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<configuration>
-					<sourceExcludes>
-						<sourceExclude>**/.svn/**</sourceExclude>
-					</sourceExcludes>
-					<downloadSources>true</downloadSources>
-					<outputDirectory>classes</outputDirectory>
-					<additionalConfig>
-						<file>
-							<name>.settings/org.eclipse.core.resources.prefs</name>
-							<content>
-               <![CDATA[eclipse.preferences.version=1${line.separator}encoding/<project>=${app.encoding}${line.separator}]]>
-							</content>
-						</file>
-					</additionalConfig>
-				</configuration>
-			</plugin>
-
-			<!-- -->
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>appassembler-maven-plugin</artifactId>
-				<version>1.7</version>
-				<configuration>
-					<configurationDirectory>conf</configurationDirectory>
-					<includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
-					<repositoryLayout>flat</repositoryLayout>
-					<useWildcardClassPath>true</useWildcardClassPath>
-					<daemons>
-						<daemon>
-							<id>mycat</id>
-							<mainClass>io.mycat.MycatStartup</mainClass>
-							<commandLineArguments>
-								<commandLineArgument>start</commandLineArgument>
-							</commandLineArguments>
-							<platforms>
-								<platform>jsw</platform>
-							</platforms>
-							<jvmSettings>
-								<!-- 启动内存配置 -->
-								<maxStackSize>128</maxStackSize>
-								<systemProperties>
-									<systemProperty>MYCAT_HOME=.</systemProperty>
-								</systemProperties>
-								<extraArguments>
-									<extraArgument>-server </extraArgument>
-									<extraArgument>-XX:MaxPermSize=64M</extraArgument>
-									<extraArgument>-XX:+AggressiveOpts</extraArgument>
-									<extraArgument>-XX:MaxDirectMemorySize=2G</extraArgument>
-									<!-- 远程JMX -->
-									<extraArgument>-Dcom.sun.management.jmxremote </extraArgument>
-									<extraArgument>-Dcom.sun.management.jmxremote.port=1984</extraArgument>
-									<extraArgument>-Dcom.sun.management.jmxremote.authenticate=false </extraArgument>
-									<extraArgument>-Dcom.sun.management.jmxremote.ssl=false </extraArgument>
-									<extraArgument>-Xmx4G</extraArgument>
-									<extraArgument>-Xms1G</extraArgument>
-								</extraArguments>
-							</jvmSettings>
-							<generatorConfigurations>
-								<generatorConfiguration>
-									<generator>jsw</generator>
-									<includes>
-										<include>aix-ppc-64</include>
-										<include>linux-x86-64</include>
-										<include>linux-ppc-64</include>
-										<include>macosx-universal-64</include>
-										<include>windows-x86-64</include>
-									</includes>
-
-									<configuration>
-										<property>
-											<name>configuration.directory.in.classpath.first</name>
-											<value>conf</value>
-										</property>
-										<property>
-											<name>wrapper.ping.timeout</name>
-											<value>120</value>
-										</property>
-										<property>
-											<name>set.default.REPO_DIR</name>
-											<value>lib</value>
-										</property>
-										<property>
-											<name>wrapper.logfile.maxsize</name>
-											<value>512m</value>
-										</property>
-										<property>
-											<name>wrapper.logfile.maxfiles</name>
-											<value>30</value>
-										</property>
-										<property>
-											<name>wrapper.logfile</name>
-											<value>logs/wrapper.log</value>
-										</property>
-									</configuration>
-
-								</generatorConfiguration>
-							</generatorConfigurations>
-						</daemon>
-
-					</daemons>
-				</configuration>
-				<executions>
-					<execution>
-						<id>generate-jsw</id>
-						<phase>package</phase>
-						<goals>
-							<goal>generate-daemons</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<descriptors>
-						<descriptor>src/main/assembly/assembly-win.xml</descriptor>
-						<descriptor>src/main/assembly/assembly-linux.xml</descriptor>
-						<descriptor>src/main/assembly/assembly-mac.xml</descriptor>
-						<descriptor>src/main/assembly/assembly-unix.xml</descriptor>
-						<descriptor>src/main/assembly/assembly-testtool.xml</descriptor>
-					</descriptors>
-				</configuration>
-				<executions>
-					<execution>
-						<id>make-assembly</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.83</version>
+        </dependency>
+        <!-- joda日期处理工具 -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.9.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.shyiko</groupId>
+            <artifactId>mysql-binlog-connector-java</artifactId>
+            <version>0.21.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.10.19</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.esotericsoftware.kryo</groupId>
+            <artifactId>kryo</artifactId>
+            <version>2.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>1.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <version>1.3</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-buffer</artifactId>
+            <version>4.1.111.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.12.0</version>
+        </dependency>
+    </dependencies>
 
 
-		</plugins>
-	</build>
+    <build>
+        <plugins>
+            <!-- 为了能在Maven中可以获得Git信息，所以增加此插件 -->
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>4.0.0</version>
+                <executions>
+                    <execution>
+                        <id>get-the-git-commit-id-info</id>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.google.code.maven-replacer-plugin</groupId>
+                <artifactId>replacer</artifactId>
+                <version>1.5.3</version>
+                <executions>
+                    <execution>
+                        <id>generate-version-txt-file</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                        <configuration>
+                            <file>${project.basedir}/${version.template.file}</file>
+                            <outputFile>${project.basedir}/${version.file}</outputFile>
+                            <replacements>
+                                <replacement>
+                                    <token>@projectversion@</token>
+                                    <value>${project.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>@mavenbuildutctime@</token>
+                                    <value>${maven.build.timestamp}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>@gitcommitid@</token>
+                                    <value>${git.commit.id}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>@gitrepourl@</token>
+                                    <value>https://github.com/zyplanke/shardingcat.git</value>
+                                </replacement>
+                            </replacements>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-version-jar-file</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                        <configuration>
+                            <file>${project.basedir}/src/main/java/io/mycat/config/Versions.template</file>
+                            <outputFile>${project.basedir}/src/main/java/io/mycat/config/Versions.java</outputFile>
+                            <replacements>
+                                <replacement>
+                                    <token>@server-version@</token>
+                                    <value>mycat-${project.version}-${maven.build.timestamp}</value>
+                                </replacement>
+                            </replacements>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/.svn/**</exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.10</version>
+                <configuration>
+                    <sourceExcludes>
+                        <sourceExclude>**/.svn/**</sourceExclude>
+                    </sourceExcludes>
+                    <downloadSources>true</downloadSources>
+                    <outputDirectory>classes</outputDirectory>
+                    <additionalConfig>
+                        <file>
+                            <name>.settings/org.eclipse.core.resources.prefs</name>
+                            <content>
+                                <![CDATA[eclipse.preferences.version=1${line.separator}encoding/<project>=${app.encoding}${line.separator}]]>
+                            </content>
+                        </file>
+                    </additionalConfig>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <!--生成可直接启动应用程序(包括可执行的JDK、依赖jar等)的插件。 其官网 https://www.mojohaus.org/plugins.html -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>appassembler-maven-plugin</artifactId>
+                <version>2.1.0</version>
+                <configuration>
+                    <configurationDirectory>conf</configurationDirectory>
+                    <includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
+                    <useWildcardClassPath>true</useWildcardClassPath>
+                    <!--lib下直接存放jar，没有命名空间的文件夹（如com/apache)，如果没有这个选项则放在lib下的jar包会被com/apache类似的多层文件夹包裹起来-->
+                    <repositoryLayout>flat</repositoryLayout>
+                    <!-- appassembler插件generated daemons生成存放的目标目录 -->
+                    <target>${project.build.directory}/appassembler</target>
+                    <daemons>
+                        <daemon>
+                            <id>${project.name}</id>
+                            <mainClass>io.mycat.MycatStartup</mainClass>
+                            <commandLineArguments>
+                                <commandLineArgument>start</commandLineArgument>
+                            </commandLineArguments>
+                            <platforms>
+                                <!-- 通过Java Service Wrapper (JSW)生成各个运行平台的执行文件 -->
+                                <platform>jsw</platform>
+                            </platforms>
+                            <jvmSettings>
+                                <!-- JVM启动选项（每个选项必须单独放置一个XML标签中，多个选项不能连写） -->
+                                <systemProperties>
+                                    <systemProperty>MYCAT_HOME=.</systemProperty>
+                                </systemProperties>
+                                <extraArguments>
+                                    <extraArgument>-server</extraArgument>
+                                    <extraArgument>-XX:+AggressiveOpts</extraArgument>
+                                    <extraArgument>-XX:MaxDirectMemorySize=2048m</extraArgument>
+                                    <extraArgument>-Xms1024m</extraArgument>
+                                    <extraArgument>-Xmx8192m</extraArgument>
+                                    <!-- 开启jvm gc的日志输出（必须确保gclogs目录已经创建） -->
+                                    <extraArgument>-verbose:gc</extraArgument>
+                                    <extraArgument>-Xloggc:gclogs/jvm_gc_StartUpTime%t.log</extraArgument>
+                                    <extraArgument>-XX:+UseGCLogFileRotation</extraArgument>
+                                    <extraArgument>-XX:NumberOfGCLogFiles=10</extraArgument>
+                                    <extraArgument>-XX:GCLogFileSize=10M</extraArgument>
+                                    <extraArgument>-XX:+HeapDumpOnOutOfMemoryError</extraArgument>
+                                    <extraArgument>-XX:HeapDumpPath=gclogs</extraArgument>
+                                    <extraArgument>-XX:+PrintGCDateStamps</extraArgument>
+                                    <extraArgument>-XX:+PrintGCTimeStamps</extraArgument>
+                                    <extraArgument>-XX:+PrintGCDetails</extraArgument>
+                                    <!-- 若需要可开启远程JMX -->
+                                    <!-- <extraArgument>-Dcom.sun.management.jmxremote</extraArgument>-->
+                                    <!-- <extraArgument>-Dcom.sun.management.jmxremote.port=1984</extraArgument>-->
+                                    <!-- <extraArgument>-Dcom.sun.management.jmxremote.authenticate=false</extraArgument>-->
+                                    <!-- <extraArgument>-Dcom.sun.management.jmxremote.ssl=false</extraArgument>-->
+                                </extraArguments>
+                            </jvmSettings>
+                            <generatorConfigurations>
+                                <generatorConfiguration>
+                                    <generator>jsw</generator>
+                                    <includes>
+                                        <!-- 由于appassembler-maven-plugin插件版本使用的wrapper-delta-pack为3.2.3版版本较低不支持arm平台，所以会提示not found in map警告，可忽略。-->
+                                        <!-- 若未来appassembler-maven-plugin插件版本升级后携带了新版wrapper-delta-pack则无此警告 -->
+                                        <include>aix-ppc-64</include>
+                                        <include>linux-x86-64</include>
+                                        <include>linux-arm-64</include>
+                                        <include>macosx-universal-64</include>
+                                        <include>macosx-arm-64</include>
+                                        <include>windows-x86-64</include>
+                                    </includes>
+                                    <configuration>
+                                        <property>
+                                            <name>configuration.directory.in.classpath.first</name>
+                                            <value>conf</value>
+                                        </property>
+                                        <property>
+                                            <name>wrapper.ping.timeout</name>
+                                            <value>120</value>
+                                        </property>
+                                        <property>
+                                            <name>set.default.REPO_DIR</name>
+                                            <value>lib</value>
+                                        </property>
+                                        <property>
+                                            <name>wrapper.logfile.maxsize</name>
+                                            <value>512m</value>
+                                        </property>
+                                        <property>
+                                            <name>wrapper.logfile.maxfiles</name>
+                                            <value>30</value>
+                                        </property>
+                                        <property>
+                                            <name>wrapper.logfile</name>
+                                            <value>wrapper.log</value>
+                                        </property>
+                                    </configuration>
+                                </generatorConfiguration>
+                            </generatorConfigurations>
+                        </daemon>
+                    </daemons>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-appassembler-jsw</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>generate-daemons</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <!-- 由于①appassembler-maven-plugin插件版本使用的wrapper-delta-pack为3.2.3版，其版本较低不支持arm平台；②在appassembler-maven-plugin插件中JavaServiceWrapperDaemonGenerator类中代码也写死了可携带的平台范围。-->
+                <!-- 新版wrapper-delta-pack可浏览网页：https://wrapper.tanukisoftware.com/doc/english/download.jsp  （应使用 "Delta Pack"的社区版Community）-->
+                <!-- 对以上appassembler插件generated daemons生成的结果后，通过以下临时动作单独对新版wrapper-delta-pack进行下载、解压、拷贝至appassembler插件generated daemons生成存放的目标目录 -->
+                <!-- 若未来appassembler-maven-plugin插件版本升级后携带了新版wrapper-delta-pack，则以下antrun插件的动作可删除不再需要 -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-newer-wrapper-version-files</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <property name="temp.download.dir" value="${project.build.directory}/tempdownload"/>
+                                <mkdir dir="${temp.download.dir}"/>
+                                <get src="https://download.tanukisoftware.com/wrapper/3.5.57/wrapper-delta-pack-3.5.57.tar.gz" dest="${temp.download.dir}/wrapper-delta-pack-3.5.57.tar.gz" skipexisting="true"/>
+                                <untar compression="gzip" src="${temp.download.dir}/wrapper-delta-pack-3.5.57.tar.gz" dest="${temp.download.dir}"/>
+                                <copy todir="${project.build.directory}/appassembler/jsw/${project.name}/lib/" overwrite="true">
+                                    <fileset dir="${temp.download.dir}/wrapper-delta-pack-3.5.57/lib/">
+                                        <include name="wrapper.jar"/>   <!--用新版wrapper.jar覆盖老版本-->
+                                        <include name="wrapper-windows-x86-64.dll"/>   <!--用新版库文件覆盖老版本-->
+                                        <include name="libwrapper-aix-ppc-64.so"/>   <!--用新版库文件覆盖老版本-->
+                                        <include name="libwrapper-linux-x86-64.so"/>   <!--用新版库文件覆盖老版本-->
+                                        <include name="libwrapper-macosx-universal-64.jnilib"/>   <!--用新版库文件覆盖老版本-->
+                                        <include name="libwrapper-linux-arm-64.so"/>   <!--增加arm64版本库文件-->
+                                        <include name="libwrapper-macosx-arm-64.dylib"/>   <!--增加arm64版本库文件-->
+                                    </fileset>
+                                </copy>
+                                <copy todir="${project.build.directory}/appassembler/jsw/${project.name}/bin/" overwrite="true">
+                                    <fileset dir="${temp.download.dir}/wrapper-delta-pack-3.5.57/bin/">
+                                        <include name="wrapper-windows-x86-64.exe"/>   <!--用新版可执行文件覆盖老版本-->
+                                        <include name="wrapper-aix-ppc-64"/>   <!--用新版可执行文件覆盖老版本-->
+                                        <include name="wrapper-linux-x86-64"/>   <!--用新版可执行文件覆盖老版本-->
+                                        <include name="wrapper-macosx-universal-64"/>   <!--用新版可执行文件覆盖老版本-->
+                                        <include name="wrapper-linux-arm-64"/>   <!--增加arm64版本可执行文件-->
+                                        <include name="wrapper-macosx-arm-64"/>   <!--增加arm64版本可执行文件-->
+                                    </fileset>
+                                </copy>
+                                <!--用新版的bat脚本文件覆盖老版本，并替换其中的变量-->
+                                <copy file="${temp.download.dir}/wrapper-delta-pack-3.5.57/bin/DemoApp.bat" tofile="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}.bat" overwrite="true"/>
+                                <replaceregexp file="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}.bat" match="demoapp.conf" replace="wrapper.conf" flags="g" byline="true"/>
+                                <!--用新版的shell脚本文件覆盖老版本，并替换其中的变量-->
+                                <copy file="${temp.download.dir}/wrapper-delta-pack-3.5.57/bin/demoapp" tofile="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}" overwrite="true"/>
+                                <replaceregexp file="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}" match="demoapp.conf" replace="wrapper.conf" flags="g" byline="true"/>
+                                <replaceregexp file="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}" match="demoapp" replace="${project.name}" flags="g" byline="true"/>
+                                <replaceregexp file="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}" match="Wrapper Demo Application" replace="${project.name}" flags="g" byline="true"/>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <!-- 然后打包为可发布的zip/tar文件(打包的内容、目标格式由descriptor的配置文件定义) -->
+                <!-- 本插件用途官网描述为：combine project output into a single distributable archive that also contains dependencies, modules, site documentation, and other files -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.7.1</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/assembly-win.xml</descriptor>
+                        <descriptor>src/main/assembly/assembly-linux.xml</descriptor>
+                        <descriptor>src/main/assembly/assembly-mac.xml</descriptor>
+                        <descriptor>src/main/assembly/assembly-unix.xml</descriptor>
+                        <!-- <descriptor>src/main/assembly/assembly-testtool.xml</descriptor>-->
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>building-single-distributable-archive-file</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
