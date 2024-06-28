@@ -13,8 +13,8 @@
  - See the License for the specific language governing permissions and
  - limitations under the License.
 -->
-<!ELEMENT mycat:rule (tableRule*,function*)>
-<!ATTLIST mycat:rule xmlns:mycat CDATA #FIXED "http://io.mycat/">
+<!ELEMENT shardingcat:rule (tableRule*,function*)>
+<!ATTLIST shardingcat:rule xmlns:shardingcat CDATA #FIXED "http://io.shardingcat/">
 
 <!ELEMENT tableRule (rule+)>
 <!ATTLIST tableRule name CDATA #REQUIRED>

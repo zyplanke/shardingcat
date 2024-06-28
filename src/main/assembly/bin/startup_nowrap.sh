@@ -42,31 +42,31 @@ JAVA_OPTS="-server -Xms2G -Xmx2G -XX:MaxPermSize=64M  -XX:+AggressiveOpts -XX:Ma
 #set HOME
 CURR_DIR=`pwd`
 cd `dirname "$0"`/..
-MYCAT_HOME=`pwd`
+SHARDINGCAT_HOME=`pwd`
 cd $CURR_DIR
-if [ -z "$MYCAT_HOME" ] ; then
+if [ -z "$SHARDINGCAT_HOME" ] ; then
     echo
-    echo "Error: MYCAT_HOME environment variable is not defined correctly."
+    echo "Error: SHARDINGCAT_HOME environment variable is not defined correctly."
     echo
     exit 1
 fi
 #==============================================================================
 
 #set CLASSPATH
-MYCAT_CLASSPATH="$MYCAT_HOME/conf:$MYCAT_HOME/lib/classes"
-for i in "$MYCAT_HOME"/lib/*.jar
+SHARDINGCAT_CLASSPATH="$SHARDINGCAT_HOME/conf:$SHARDINGCAT_HOME/lib/classes"
+for i in "$SHARDINGCAT_HOME"/lib/*.jar
 do
-    MYCAT_CLASSPATH="$MYCAT_CLASSPATH:$i"
+    SHARDINGCAT_CLASSPATH="$SHARDINGCAT_CLASSPATH:$i"
 done
 #==============================================================================
 
 #startup Server
 RUN_CMD="\"$JAVA_HOME/bin/java\""
-RUN_CMD="$RUN_CMD -DMYCAT_HOME=\"$MYCAT_HOME\""
-RUN_CMD="$RUN_CMD -classpath \"$MYCAT_CLASSPATH\""
+RUN_CMD="$RUN_CMD -DSHARDINGCAT_HOME=\"$SHARDINGCAT_HOME\""
+RUN_CMD="$RUN_CMD -classpath \"$SHARDINGCAT_CLASSPATH\""
 RUN_CMD="$RUN_CMD $JAVA_OPTS"
-RUN_CMD="$RUN_CMD io.mycat.MycatStartup  $@"
-RUN_CMD="$RUN_CMD >> \"$MYCAT_HOME/logs/console.log\" 2>&1 &"
+RUN_CMD="$RUN_CMD io.shardingcat.ShardingCatStartup  $@"
+RUN_CMD="$RUN_CMD >> \"$SHARDINGCAT_HOME/logs/console.log\" 2>&1 &"
 echo $RUN_CMD
 eval $RUN_CMD
 #==============================================================================

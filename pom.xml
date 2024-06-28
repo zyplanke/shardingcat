@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.shardingcat</groupId>
     <artifactId>shardingcat</artifactId>
-    <version>1.0_20240628</version>
+    <version>v1.0_20240628</version>
     <packaging>jar</packaging>
     <name>shardingcat</name>
     <description>The project of shardingcat-server</description>
@@ -16,8 +16,6 @@
         <app.encoding>UTF-8</app.encoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <!-- 将Maven build构建时间设置指定格式（此处为UTC+0000时间，不是东八区时），以供后续使用${maven.build.timestamp}变量 -->
-        <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss Z</maven.build.timestamp.format>
         <version.template.file>VERSION.TXT.template</version.template.file>
         <version.file>VERSION.TXT</version.file>
     </properties>
@@ -43,17 +41,17 @@
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
-            <version>3.12.8</version>
+            <version>3.12.10</version>
         </dependency>
         <dependency>
             <groupId>org.iq80.leveldb</groupId>
             <artifactId>leveldb-api</artifactId>
-            <version>0.12</version>
+            <version>0.10</version>
         </dependency>
         <dependency>
             <groupId>org.iq80.leveldb</groupId>
             <artifactId>leveldb</artifactId>
-            <version>0.12</version>
+            <version>0.10</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.google.guava</groupId>
@@ -96,17 +94,17 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
-            <version>2.23.1</version>
+            <version>2.20.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.23.1</version>
+            <version>2.20.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-1.2-api</artifactId>
-            <version>2.23.1</version>
+            <version>2.18.0</version>
         </dependency>
         <dependency>
             <groupId>com.univocity</groupId>
@@ -128,7 +126,12 @@
         <dependency>
             <groupId>com.sequoiadb</groupId>
             <artifactId>sequoiadb-driver</artifactId>
-            <version>5.10</version>
+            <version>1.12</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.shyiko</groupId>
+            <artifactId>mysql-binlog-connector-java</artifactId>
+            <version>0.6.0</version>
         </dependency>
         <dependency>
             <groupId>com.mysql</groupId>
@@ -187,11 +190,6 @@
             <version>2.9.3</version>
         </dependency>
         <dependency>
-            <groupId>com.github.shyiko</groupId>
-            <artifactId>mysql-binlog-connector-java</artifactId>
-            <version>0.21.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
             <version>1.10.19</version>
@@ -225,23 +223,30 @@
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-buffer</artifactId>
-            <version>4.1.111.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>okhttp</artifactId>
-            <version>4.12.0</version>
+            <version>4.1.104.Final</version>
         </dependency>
     </dependencies>
 
 
     <build>
         <plugins>
-            <!-- 为了能在Maven中可以获得Git信息，所以增加此插件 -->
+            <!-- 此插件用途为在Maven中可以获得Git信息供后续使用。获得的信息存放在以git开头的变量中。部分常见的变量列举如下： -->
+            <!-- git.branch             通过Maven进行build时 所在的Git分支名 -->
+            <!-- git.commit.id          通过Maven进行build时 Git的HEAD指针指向的CommitHash(通常为所在Git Branch分支的最新提交)，40位的全格式 -->
+            <!-- git.commit.id.abbrev   通过Maven进行build时 Git的HEAD指针指向的CommitHash(通常为所在Git Branch分支的最新提交)，前几位的简短格式 -->
+            <!-- git.build.time         通过Maven进行build时 日期时间戳(默认格式为：2024-07-01T21:01:02+0800) -->
+            <!-- git.build.host         通过Maven进行build时 主机名 -->
+            <!-- git.build.user.name    通过Maven进行build时 Git用户名(不是操作系统的登录用户名) -->
+            <!-- git.build.user.email   通过Maven进行build时 Git用户电子邮箱 -->
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
-                <version>4.0.0</version>
+                <version>4.9.10</version>
+                <configuration>
+                    <useNativeGit>true</useNativeGit>
+                    <abbrevLength>10</abbrevLength>
+                    <verbose>false</verbose>
+                </configuration>
                 <executions>
                     <execution>
                         <id>get-the-git-commit-id-info</id>
@@ -267,16 +272,32 @@
                             <outputFile>${project.basedir}/${version.file}</outputFile>
                             <replacements>
                                 <replacement>
+                                    <token>@projectname@</token>
+                                    <value>${project.name}</value>
+                                </replacement>
+                                <replacement>
                                     <token>@projectversion@</token>
                                     <value>${project.version}</value>
                                 </replacement>
                                 <replacement>
-                                    <token>@mavenbuildutctime@</token>
-                                    <value>${maven.build.timestamp}</value>
+                                    <token>@gitbuildtime@</token>
+                                    <value>${git.build.time}</value>
                                 </replacement>
                                 <replacement>
-                                    <token>@gitcommitid@</token>
+                                    <token>@gitcommithash@</token>
                                     <value>${git.commit.id}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>@gitbuildhost@</token>
+                                    <value>${git.build.host}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>@gitbuildusername@</token>
+                                    <value>${git.build.user.name}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>@gitbranch@</token>
+                                    <value>${git.branch}</value>
                                 </replacement>
                                 <replacement>
                                     <token>@gitrepourl@</token>
@@ -292,12 +313,12 @@
                             <goal>replace</goal>
                         </goals>
                         <configuration>
-                            <file>${project.basedir}/src/main/java/io/mycat/config/Versions.template</file>
-                            <outputFile>${project.basedir}/src/main/java/io/mycat/config/Versions.java</outputFile>
+                            <file>${project.basedir}/src/main/java/io/shardingcat/config/Versions.template</file>
+                            <outputFile>${project.basedir}/src/main/java/io/shardingcat/config/Versions.java</outputFile>
                             <replacements>
                                 <replacement>
                                     <token>@server-version@</token>
-                                    <value>mycat-${project.version}-${maven.build.timestamp}</value>
+                                    <value>shardingcat-${project.version}-${git.build.time}</value>
                                 </replacement>
                             </replacements>
                         </configuration>
@@ -325,7 +346,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>3.2.2</version>
                 <configuration>
                     <excludes>
                         <exclude>**/.svn/**</exclude>
@@ -365,7 +386,7 @@
                 <!--生成可直接启动应用程序(包括可执行的JDK、依赖jar等)的插件。 其官网 https://www.mojohaus.org/plugins.html -->
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>appassembler-maven-plugin</artifactId>
-                <version>2.1.0</version>
+                <version>1.10</version>
                 <configuration>
                     <configurationDirectory>conf</configurationDirectory>
                     <includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
@@ -377,7 +398,7 @@
                     <daemons>
                         <daemon>
                             <id>${project.name}</id>
-                            <mainClass>io.mycat.MycatStartup</mainClass>
+                            <mainClass>io.shardingcat.ShardingCatStartup</mainClass>
                             <commandLineArguments>
                                 <commandLineArgument>start</commandLineArgument>
                             </commandLineArguments>
@@ -388,7 +409,7 @@
                             <jvmSettings>
                                 <!-- JVM启动选项（每个选项必须单独放置一个XML标签中，多个选项不能连写） -->
                                 <systemProperties>
-                                    <systemProperty>MYCAT_HOME=.</systemProperty>
+                                    <systemProperty>SHARDINGCAT_HOME=.</systemProperty>
                                 </systemProperties>
                                 <extraArguments>
                                     <extraArgument>-server</extraArgument>
@@ -418,8 +439,8 @@
                                 <generatorConfiguration>
                                     <generator>jsw</generator>
                                     <includes>
-                                        <!-- 由于appassembler-maven-plugin插件版本使用的wrapper-delta-pack为3.2.3版版本较低不支持arm平台，所以会提示not found in map警告，可忽略。-->
-                                        <!-- 若未来appassembler-maven-plugin插件版本升级后携带了新版wrapper-delta-pack则无此警告 -->
+                                        <!-- 截止2024年6月底，appassembler-maven-plugin插件版本数年未更新，因此其使用的wrapper-delta-pack的版本较低不支持arm平台，所以会提示not found in map警告，可忽略。-->
+                                        <!-- 若未来当appassembler-maven-plugin插件版本升级后携带了新版wrapper-delta-pack则无此警告 -->
                                         <include>aix-ppc-64</include>
                                         <include>linux-x86-64</include>
                                         <include>linux-arm-64</include>
@@ -530,7 +551,7 @@
                 <!-- 本插件用途官网描述为：combine project output into a single distributable archive that also contains dependencies, modules, site documentation, and other files -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.7.1</version>
+                <version>3.5.0</version>
                 <configuration>
                     <descriptors>
                         <descriptor>src/main/assembly/assembly-win.xml</descriptor>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<!DOCTYPE mycat:schema SYSTEM "schema.dtd">
-<mycat:schema xmlns:mycat="http://io.mycat/">
+<!DOCTYPE shardingcat:schema SYSTEM "schema.dtd">
+<shardingcat:schema xmlns:shardingcat="http://io.shardingcat/">
 
 	<schema name="TESTDB" checkSQLschema="false" sqlMaxLimit="100">
 		<!-- auto sharding by id (long) -->
@@ -75,4 +75,4 @@
 		dbDriver="jdbc"> <heartbeat>select user()</heartbeat> <writeHost host="hostM1"
 		url="jdbc:mysql://localhost:3306" user="root" password="123456"> </writeHost>
 		</dataHost> -->
-</mycat:schema>
+</shardingcat:schema>

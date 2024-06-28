@@ -7,8 +7,8 @@
 	WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. - See the 
 	License for the specific language governing permissions and - limitations 
 	under the License. -->
-<!DOCTYPE mycat:server SYSTEM "server.dtd">
-<mycat:server xmlns:mycat="http://io.mycat/">
+<!DOCTYPE shardingcat:server SYSTEM "server.dtd">
+<shardingcat:server xmlns:shardingcat="http://io.shardingcat/">
 	<system>
 	<property name="nonePasswordLogin">0</property> <!-- 0为需要密码登陆、1为不需要密码登陆 ,默认为0，设置为1则需要指定默认账户-->
 	<property name="useHandshakeV10">1</property>
@@ -111,4 +111,4 @@
 		<property name="readOnly">true</property>
 	</user>
 
-</mycat:server>
+</shardingcat:server>

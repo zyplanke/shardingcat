@@ -12,6 +12,6 @@ set "JAVA_CMD=java"
 REM set HOME_DIR
 set "CURR_DIR=%cd%"
 cd ..
-set "MYCAT_HOME=%cd%"
+set "SHARDINGCAT_HOME=%cd%"
 cd %CURR_DIR%
-"%JAVA_CMD%" -Xms256M -Xmx1G -XX:MaxPermSize=64M  -DMYCAT_HOME=%MYCAT_HOME% -cp "..\conf;..\lib\*" io.mycat.performance.TestInsertPerf %1 %2 %3 %4 %5
+"%JAVA_CMD%" -Xms256M -Xmx1G -XX:MaxPermSize=64M  -DSHARDINGCAT_HOME=%SHARDINGCAT_HOME% -cp "..\conf;..\lib\*" io.shardingcat.performance.TestInsertPerf %1 %2 %3 %4 %5

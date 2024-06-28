@@ -8,13 +8,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * @author mycat
+ * @author shardingcat
  *
  */
 public class TestClass1 {
 
     public static void main( String args[] ) throws SQLException , ClassNotFoundException {
-        String jdbcdriver="com.mysql.jdbc.Driver";
+        String jdbcdriver="com.mysql.cj.jdbc.Driver";
         String jdbcurl="jdbc:mysql://127.0.0.1:8066/TESTDB?useUnicode=true&characterEncoding=utf-8";
         String username="test";
         String password="test";

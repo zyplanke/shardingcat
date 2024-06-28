@@ -1,7 +1,7 @@
 #!/bin/bash
 
-MYCAT_HOME="$(dirname `readlink -f $0`)/.."
-MAIN_CLASS=io.mycat.config.loader.zkprocess.xmltozk.XmltoZkMain
+SHARDINGCAT_HOME="$(dirname `readlink -f $0`)/.."
+MAIN_CLASS=io.shardingcat.config.loader.zkprocess.xmltozk.XmltoZkMain
 
 JAVA_CMD=""
 
@@ -13,7 +13,7 @@ function log_error() { date +o"%F %T ERROR $1" ; }
 #01. Locate java(JRE)
 java_in_wrapper="`sed -nr \
 	-e 's/^wrapper.java.command=(.*)[[:blank:]]*$/\1/p' \
-	$MYCAT_HOME/conf/wrapper.conf`"
+	$SHARDINGCAT_HOME/conf/wrapper.conf`"
 
 # test java(JRE) in this order: 
 #  wrapper.conf's java -> $JAVA_HOME/bin/java -> $PATH/java
@@ -35,10 +35,10 @@ fi
 
 log_info "JAVA_CMD=$JAVA_CMD"
 
-#02. Initialize /mycat of ZooKeeper
-log_info "Start to initialize /mycat of ZooKeeper"
+#02. Initialize /shardingcat of ZooKeeper
+log_info "Start to initialize /shardingcat of ZooKeeper"
 
-if ! $JAVA_CMD -Xms256M -Xmx1G  -DMYCAT_HOME=$MYCAT_HOME -cp "$MYCAT_HOME/conf:$MYCAT_HOME/lib/*" $MAIN_CLASS ; then
+if ! $JAVA_CMD -Xms256M -Xmx1G  -DSHARDINGCAT_HOME=$SHARDINGCAT_HOME -cp "$SHARDINGCAT_HOME/conf:$SHARDINGCAT_HOME/lib/*" $MAIN_CLASS ; then
 	log_error "Something wrong happened, please refer logs above"
 	exit 1
 fi

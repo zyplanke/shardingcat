@@ -1,11 +1,23 @@
+#工程版名(等于Maven工程名)
+ProjectName  shardingcat
+
 #工程版本号(等于Maven工程配置的版本号)
-ProjectVersion  1.0_20240628
+ProjectVersion  v1.0_20240628
 
-#编译打包时间(UTC时，与东八区时有8小时差异)
-MavenBuildUtcTime  2024-06-28 04:11:01 +0000
+#通过Maven进行build时 日期时间戳
+BuildTime  2024-06-28T19:52:05+0800
 
-#编译打包时的Git版本Hash值
-GitVersion  7960f750ef09cc8f08f28bdac76b747af81d4ce6
+#通过Maven进行build时 Git的HEAD指针指向的CommitHash(通常为所在Git Branch分支的最新提交)，40位的全格式
+BuildOfGitCommitHash  128d34243c82405b80e0f3dcd4848b8e1bc96d5f
+
+#通过Maven进行build时 主机名
+BuildHost  YOGA260ZYP
+
+#通过Maven进行build时 Git用户名(不是操作系统的登录用户名)
+BuildHostName  w-zhangyuping
+
+#通过Maven进行build时 所在的Git分支名
+GitBranch  main
 
 #Git仓库URL
 GitRepositoryUrl  https://github.com/zyplanke/shardingcat.git
