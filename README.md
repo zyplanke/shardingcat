@@ -1,7 +1,7 @@
 # shardingcat分库分表中间件
-初始参考Mycat版本: 2018-01-31 (GitVersion:0c56ebd34dcdc5594d71765d614ea0cac0be64b7)
+初始参考来源：Mycat 2018-01-31版 (GitVersion:0c56ebd34dcdc5594d71765d614ea0cac0be64b7)
 
-### 主要特色
+### shardingcat主要特色
 - 增加对ARM适配支持(包括Linux和MacOSX的ARM 64bit平台)
 - 移除了对32bit平台的支持，移除了对Solaris、HPUX的支持
 - 进一步支持PostgreSQL，默认携带PostgreSQL驱动
@@ -21,3 +21,10 @@
 ${MAVEN_HOME}/bin/mvn -Dmaven.repo.local="D:\IdeaProjects\repository" clean package
 ```
 生成的结果在target子目录下，其中包括已打包为可发布的*.tar.gz文件
+
+### 部署
+将上步已打包为可发布的*.tar.gz文件，选择对应平台，拷贝到目标服务器后进行解压。
+解压后，可通过以下命令运行：
+```
+./bin/shardingcat start
+```
