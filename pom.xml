@@ -272,34 +272,47 @@
                             <outputFile>${project.basedir}/${version.file}</outputFile>
                             <replacements>
                                 <replacement>
+                                    <!--suppress UnresolvedMavenProperty -->
                                     <token>@projectname@</token>
                                     <value>${project.name}</value>
                                 </replacement>
                                 <replacement>
+                                    <!--suppress UnresolvedMavenProperty -->
                                     <token>@projectversion@</token>
                                     <value>${project.version}</value>
                                 </replacement>
                                 <replacement>
+                                    <!--suppress UnresolvedMavenProperty -->
                                     <token>@gitbuildtime@</token>
+                                    <!--suppress UnresolvedMavenProperty -->
                                     <value>${git.build.time}</value>
                                 </replacement>
                                 <replacement>
+                                    <!--suppress UnresolvedMavenProperty -->
                                     <token>@gitcommithash@</token>
+                                    <!--suppress UnresolvedMavenProperty -->
                                     <value>${git.commit.id}</value>
                                 </replacement>
                                 <replacement>
+                                    <!--suppress UnresolvedMavenProperty -->
                                     <token>@gitbuildhost@</token>
+                                    <!--suppress UnresolvedMavenProperty -->
                                     <value>${git.build.host}</value>
                                 </replacement>
                                 <replacement>
+                                    <!--suppress UnresolvedMavenProperty -->
                                     <token>@gitbuildusername@</token>
+                                    <!--suppress UnresolvedMavenProperty -->
                                     <value>${git.build.user.name}</value>
                                 </replacement>
                                 <replacement>
+                                    <!--suppress UnresolvedMavenProperty -->
                                     <token>@gitbranch@</token>
+                                    <!--suppress UnresolvedMavenProperty -->
                                     <value>${git.branch}</value>
                                 </replacement>
                                 <replacement>
+                                    <!--suppress UnresolvedMavenProperty -->
                                     <token>@gitrepourl@</token>
                                     <value>https://github.com/zyplanke/shardingcat.git</value>
                                 </replacement>
@@ -491,10 +504,14 @@
                         <configuration>
                             <target>
                                 <property name="temp.download.dir" value="${project.build.directory}/tempdownload"/>
+                                <!--suppress UnresolvedMavenProperty -->
                                 <mkdir dir="${temp.download.dir}"/>
+                                <!--suppress UnresolvedMavenProperty -->
                                 <get src="https://download.tanukisoftware.com/wrapper/3.5.57/wrapper-delta-pack-3.5.57.tar.gz" dest="${temp.download.dir}/wrapper-delta-pack-3.5.57.tar.gz" skipexisting="true"/>
+                                <!--suppress UnresolvedMavenProperty -->
                                 <untar compression="gzip" src="${temp.download.dir}/wrapper-delta-pack-3.5.57.tar.gz" dest="${temp.download.dir}"/>
                                 <copy todir="${project.build.directory}/appassembler/jsw/${project.name}/lib/" overwrite="true">
+                                    <!--suppress UnresolvedMavenProperty -->
                                     <fileset dir="${temp.download.dir}/wrapper-delta-pack-3.5.57/lib/">
                                         <include name="wrapper.jar"/>   <!--用新版wrapper.jar覆盖老版本-->
                                         <include name="wrapper-windows-x86-64.dll"/>   <!--用新版库文件覆盖老版本-->
@@ -506,6 +523,7 @@
                                     </fileset>
                                 </copy>
                                 <copy todir="${project.build.directory}/appassembler/jsw/${project.name}/bin/" overwrite="true">
+                                    <!--suppress UnresolvedMavenProperty -->
                                     <fileset dir="${temp.download.dir}/wrapper-delta-pack-3.5.57/bin/">
                                         <include name="wrapper-windows-x86-64.exe"/>   <!--用新版可执行文件覆盖老版本-->
                                         <include name="wrapper-aix-ppc-64"/>   <!--用新版可执行文件覆盖老版本-->
@@ -516,9 +534,11 @@
                                     </fileset>
                                 </copy>
                                 <!--用新版的bat脚本文件覆盖老版本，并替换其中的变量-->
+                                <!--suppress UnresolvedMavenProperty -->
                                 <copy file="${temp.download.dir}/wrapper-delta-pack-3.5.57/bin/DemoApp.bat" tofile="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}.bat" overwrite="true"/>
                                 <replaceregexp file="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}.bat" match="demoapp.conf" replace="wrapper.conf" flags="g" byline="true"/>
                                 <!--用新版的shell脚本文件覆盖老版本，并替换其中的变量-->
+                                <!--suppress UnresolvedMavenProperty -->
                                 <copy file="${temp.download.dir}/wrapper-delta-pack-3.5.57/bin/demoapp" tofile="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}" overwrite="true"/>
                                 <replaceregexp file="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}" match="demoapp.conf" replace="wrapper.conf" flags="g" byline="true"/>
                                 <replaceregexp file="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}" match="demoapp" replace="${project.name}" flags="g" byline="true"/>
