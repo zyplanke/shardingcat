@@ -1,23 +1,29 @@
+#-----------------------------------------------------
+# 本文件由Maven在build时进行自动赋值
+# 本文件为Key=Value格式。
+# 本文件除了供人阅读外，Java程序也需要解析
+#-----------------------------------------------------
+
 #工程版名(等于Maven工程名)
-ProjectName  shardingcat
+projectName=shardingcat
 
 #工程版本号(等于Maven工程配置的版本号)
-ProjectVersion  v1.0_20240628
+projectVersion=v1.0_20240701
 
 #通过Maven进行build时 日期时间戳
-BuildTime  2024-06-28T19:52:05+0800
+buildTime=2024-07-01T10:23:08+0800
 
-#通过Maven进行build时 Git的HEAD指针指向的CommitHash(通常为所在Git Branch分支的最新提交)，40位的全格式
-BuildOfGitCommitHash  128d34243c82405b80e0f3dcd4848b8e1bc96d5f
+#通过Maven进行build时 Git的HEAD指针指向的CommitHash(通常为所在Git Branch分支的最新提交记录)，40位的全格式
+buildOfGitCommitHash=3a8fecf88e8f3f4b17936e7d07750a5c1e7b22a7
 
-#通过Maven进行build时 主机名
-BuildHost  YOGA260ZYP
+#通过Maven进行build时 所用主机名
+buildHost=YOGA260ZYP
 
 #通过Maven进行build时 Git用户名(不是操作系统的登录用户名)
-BuildHostName  w-zhangyuping
+buildHostName=w-zhangyuping
 
 #通过Maven进行build时 所在的Git分支名
-GitBranch  main
+gitBranch=main
 
 #Git仓库URL
-GitRepositoryUrl  https://github.com/zyplanke/shardingcat.git
+gitRepositoryUrl=https://github.com/zyplanke/shardingcat.git

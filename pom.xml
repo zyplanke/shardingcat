@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.shardingcat</groupId>
     <artifactId>shardingcat</artifactId>
-    <version>v1.0_20240628</version>
+    <version>v1.0_20240701</version>
     <packaging>jar</packaging>
     <name>shardingcat</name>
     <description>The project of shardingcat-server</description>
@@ -231,13 +231,13 @@
     <build>
         <plugins>
             <!-- 此插件用途为在Maven中可以获得Git信息供后续使用。获得的信息存放在以git开头的变量中。部分常见的变量列举如下： -->
-            <!-- git.branch             通过Maven进行build时 所在的Git分支名 -->
-            <!-- git.commit.id          通过Maven进行build时 Git的HEAD指针指向的CommitHash(通常为所在Git Branch分支的最新提交)，40位的全格式 -->
-            <!-- git.commit.id.abbrev   通过Maven进行build时 Git的HEAD指针指向的CommitHash(通常为所在Git Branch分支的最新提交)，前几位的简短格式 -->
-            <!-- git.build.time         通过Maven进行build时 日期时间戳(默认格式为：2024-07-01T21:01:02+0800) -->
-            <!-- git.build.host         通过Maven进行build时 主机名 -->
-            <!-- git.build.user.name    通过Maven进行build时 Git用户名(不是操作系统的登录用户名) -->
-            <!-- git.build.user.email   通过Maven进行build时 Git用户电子邮箱 -->
+            <!-- git.branch             Maven进行build时 所在的Git分支名 -->
+            <!-- git.commit.id          Maven进行build时 Git的HEAD指针指向的CommitHash(通常为所在Git Branch分支的最新提交记录)，40位的全格式 -->
+            <!-- git.commit.id.abbrev   Maven进行build时 Git的HEAD指针指向的CommitHash(通常为所在Git Branch分支的最新提交记录)，前几位的简短格式 -->
+            <!-- git.build.time         Maven进行build时 日期时间戳(默认格式为：2024-07-01T21:01:02+0800) -->
+            <!-- git.build.host         Maven进行build时 所用主机名 -->
+            <!-- git.build.user.name    Maven进行build时 Git用户名(不是操作系统的登录用户名) -->
+            <!-- git.build.user.email   Maven进行build时 Git用户电子邮箱 -->
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
@@ -302,23 +302,6 @@
                                 <replacement>
                                     <token>@gitrepourl@</token>
                                     <value>https://github.com/zyplanke/shardingcat.git</value>
-                                </replacement>
-                            </replacements>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>generate-version-jar-file</id>
-                        <phase>process-sources</phase>
-                        <goals>
-                            <goal>replace</goal>
-                        </goals>
-                        <configuration>
-                            <file>${project.basedir}/src/main/java/io/shardingcat/config/Versions.template</file>
-                            <outputFile>${project.basedir}/src/main/java/io/shardingcat/config/Versions.java</outputFile>
-                            <replacements>
-                                <replacement>
-                                    <token>@server-version@</token>
-                                    <value>shardingcat-${project.version}-${git.build.time}</value>
                                 </replacement>
                             </replacements>
                         </configuration>

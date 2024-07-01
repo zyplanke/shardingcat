@@ -13,7 +13,7 @@ import io.shardingcat.net.mysql.ResultSetHeaderPacket;
 import io.shardingcat.net.mysql.RowDataPacket;
 
 /**
- * 查看CobarServer版本
+ * show展示ShardingCatServer版本
  * 
  * @author shardingcat
  */
