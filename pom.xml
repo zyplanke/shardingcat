@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.shardingcat</groupId>
     <artifactId>shardingcat</artifactId>
-    <version>v1.0_20240701</version>
+    <version>v1.0_20240702</version>
     <packaging>jar</packaging>
     <name>shardingcat</name>
     <description>The project of shardingcat-server</description>
@@ -230,7 +230,9 @@
 
     <build>
         <plugins>
-            <!-- 此插件用途为在Maven中可以获得Git信息供后续使用。获得的信息存放在以git开头的变量中。部分常见的变量列举如下： -->
+            <!-- 此插件官网URL:  https://github.com/git-commit-id/git-commit-id-maven-plugin/ -->
+            <!-- 查看Maven插件attributes列表及描述方法： mvn help:describe -Dplugin=pl.project13.maven:git-commit-id-plugin:4.9.10 -Ddetail -->
+            <!-- 此插件用途为在Maven中可以获得Git信息供后续使用。默认以git开头的变量中存放获得的信息。部分常见的变量列举如下： -->
             <!-- git.branch             Maven进行build时 所在的Git分支名 -->
             <!-- git.commit.id          Maven进行build时 Git的HEAD指针指向的CommitHash(通常为所在Git Branch分支的最新提交记录)，40位的全格式 -->
             <!-- git.commit.id.abbrev   Maven进行build时 Git的HEAD指针指向的CommitHash(通常为所在Git Branch分支的最新提交记录)，前几位的简短格式 -->
@@ -245,6 +247,7 @@
                 <configuration>
                     <useNativeGit>true</useNativeGit>
                     <abbrevLength>10</abbrevLength>
+                    <dateFormat>yyyy-MM-dd'T'HH:mm:ssZ</dateFormat>
                     <verbose>false</verbose>
                 </configuration>
                 <executions>

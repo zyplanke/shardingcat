@@ -1,6 +1,6 @@
 #-----------------------------------------------------
 # 本文件由Maven在build时进行自动赋值
-# 本文件为Key=Value格式。
+# 本文件中各项为Key=Value格式
 # 本文件除了供人阅读外，Java程序也需要解析
 #-----------------------------------------------------
 
@@ -8,13 +8,13 @@
 projectName=shardingcat
 
 #工程版本号(等于Maven工程配置的版本号)
-projectVersion=v1.0_20240701
+projectVersion=v1.0_20240702
 
 #通过Maven进行build时 日期时间戳
-buildTime=2024-07-01T10:26:57+0800
+buildTime=2024-07-02T10:33:20+0800
 
 #通过Maven进行build时 Git的HEAD指针指向的CommitHash(通常为所在Git Branch分支的最新提交记录)，40位的全格式
-buildOfGitCommitHash=734b3675feec2cb1a84600bcdcb649eeb113b8d5
+buildOfGitCommitHash=b9fc88cb4d6d894df7d2d770df7362da3346c1ea
 
 #通过Maven进行build时 所用主机名
 buildHost=YOGA260ZYP
