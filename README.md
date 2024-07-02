@@ -1,19 +1,19 @@
 # shardingcat分库分表中间件
-初始参考来源：Mycat 2018-01-31版 (GitVersion:0c56ebd34dcdc5594d71765d614ea0cac0be64b7)
 
 ### shardingcat主要特色
-- 增加对ARM适配支持(包括Linux和MacOSX的ARM 64bit平台)
-- 移除了对32bit平台的支持，移除了对Solaris、HPUX的支持
-- 进一步支持PostgreSQL，默认携带PostgreSQL驱动
+- 支持对ARM适配支持(包括Linux和MacOSX的ARM 64bit平台)
+- 移除对32bit平台的支持，移除了对Solaris、HPUX的支持
+- 支持PostgreSQL，默认携带PostgreSQL驱动
 - Mysql驱动升级至8.x
 - 对代码、配置内容进行了调整和完善
-- 修改Bug
-- 对Maven各依赖、插件进行了升级、删除了不用的依赖，调整了配置
-- 代码、配置改为shardingcat
-- xml命名空间改为shardingcat
-- 工程命名改为全小写，以符合规范
+- 对Maven各依赖、插件进行了升级、删除了不用的依赖，调整了build配置
+- 代码、配置为shardingcat
+- xml命名空间为shardingcat
+- 工程命名等符合规范
 - 启动参数默认开启jvm gc的日志输出
 - License调整为Apache License 2.0
+
+初始参考自mycat的2018-01-31版本GitVersion:0c56ebd34dcdc5594d71765d614ea0cac0be64b7
 
 ### 编译命令示例
 确保本机已装Maven，通过如下命令打包（若不指定-Dmaven.repo.local，则默认使用Maven setting.xml文件中所配置的本地仓位置）
