@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class TestPrepareSql {
 
-	private static String url = "jdbc:mysql://localhost:8066/test?useServerPrepStmts=true"; // 使用服务端预处理
+	private static String url = "jdbc:mysql://localhost:3307/test?useServerPrepStmts=true"; // 使用服务端预处理
 	private static String user = "zhuam";
 	private static String password = "zhuam";
 	

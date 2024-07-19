@@ -35,7 +35,7 @@ import java.util.logging.Logger;
  */
 public class ShardingCatMulitJdbcVersionTest {
 	
-	private static final String JDBC_URL = "jdbc:mysql://localhost:8066/TESTDB";
+	private static final String JDBC_URL = "jdbc:mysql://localhost:3307/TESTDB";
 	private static final String USER = "root";
 	private static final String PASSWORD = "123456";
 	private static final Map<String, String> jdbcVersionMap = new HashMap<String, String>();

@@ -138,8 +138,8 @@ public class ShowSysParam {
 		"对后端连接进行空闲、超时检查的时间间隔，默认是300秒",
 		"对后端所有读、写库发起心跳的间隔时间，默认是10秒",
 		"shardingcat服务监听的IP地址，默认值为0.0.0.0",
-		"shardingcat的使用端口，默认值为8066",
-		"shardingcat的管理端口，默认值为9066"};
+		"shardingcat的使用端口，默认值为3307",
+		"shardingcat的管理端口，默认值为4407"};
 	
     public static final String[] ISOLATIONS = {"", "READ_UNCOMMITTED", "READ_COMMITTED", "REPEATED_READ", "SERIALIZABLE"};
 }

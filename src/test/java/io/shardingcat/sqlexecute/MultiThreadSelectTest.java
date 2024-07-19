@@ -49,7 +49,7 @@ public class MultiThreadSelectTest {
 			e1.printStackTrace();
 		}
 
-		final String url = "jdbc:mysql://localhost:8066/TESTDB";
+		final String url = "jdbc:mysql://localhost:3307/TESTDB";
 		final String user = "test";
 		final String password = "test";
 		List<Thread> threads = new ArrayList<Thread>(100);

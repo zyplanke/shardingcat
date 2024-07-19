@@ -19,7 +19,7 @@ public class TestJdbc {
 		// String url = "jdbc:mysql://192.168.56.101:3309/shardingcat";
 		// String username = "root";
 		// String password = "root123";
-		String url = "jdbc:mysql://127.0.0.1:8066/TESTDB";
+		String url = "jdbc:mysql://127.0.0.1:3307/TESTDB";
 		String username = "test";
 		String password = "test";
 		Connection con = null;

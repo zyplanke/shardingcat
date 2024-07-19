@@ -109,9 +109,9 @@ public class TestSelectPerf {
 			System.out
 					.println("input param,format: [jdbcurl] [user] [password]  [threadpoolsize]  [executetimes] [minId-maxId|sqlfile] [repeat]");
 			System.out
-					.println("jdbc:mysql://localhost:8066/TESTDB test test 10  10000 1-1000000  1 ");
+					.println("jdbc:mysql://localhost:3307/TESTDB test test 10  10000 1-1000000  1 ");
 			System.out
-					.println("jdbc:mysql://localhost:8066/TESTDB test test 10  10000 file=mytempate.sql  1");
+					.println("jdbc:mysql://localhost:3307/TESTDB test test 10  10000 file=mytempate.sql  1");
 
 			return;
 		}

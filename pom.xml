@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.shardingcat</groupId>
     <artifactId>shardingcat</artifactId>
-    <version>v1.0_20240702</version>
+    <version>v1.0_20240719</version>
     <packaging>jar</packaging>
     <name>shardingcat</name>
     <description>The project of shardingcat-server</description>
@@ -235,7 +235,7 @@
             <!-- 此插件用途为在Maven中可以获得Git信息供后续使用。默认以git开头的变量中存放获得的信息。部分常见的变量列举如下： -->
             <!-- git.branch             Maven进行build时 所在的Git分支名 -->
             <!-- git.commit.id          Maven进行build时 Git的HEAD指针指向的CommitHash(通常为所在Git Branch分支的最新提交记录)，40位的全格式 -->
-            <!-- git.commit.id.abbrev   Maven进行build时 Git的HEAD指针指向的CommitHash(通常为所在Git Branch分支的最新提交记录)，前几位的简短格式 -->
+            <!-- git.commit.id.abbrev   Maven进行build时 Git的HEAD指针指向的CommitHash(通常为所在Git Branch分支的最新提交记录)，前几位的缩略格式 -->
             <!-- git.build.time         Maven进行build时 日期时间戳(默认格式为：2024-07-01T21:01:02+0800) -->
             <!-- git.build.host         Maven进行build时 所用主机名 -->
             <!-- git.build.user.name    Maven进行build时 Git用户名(不是操作系统的登录用户名) -->
@@ -245,7 +245,9 @@
                 <artifactId>git-commit-id-plugin</artifactId>
                 <version>4.9.10</version>
                 <configuration>
-                    <useNativeGit>true</useNativeGit>
+                    <!-- 是否使用本地git命令获取相关信息：true使用本地git命令(需安装高于2.10版本的Git软件)；false(默认)使用JGIT不使用本地git命令 -->
+                    <useNativeGit>false</useNativeGit>
+                    <!-- 指定Git的CommitHash的缩略格式位数(默认7位) -->
                     <abbrevLength>10</abbrevLength>
                     <dateFormat>yyyy-MM-dd'T'HH:mm:ssZ</dateFormat>
                     <verbose>false</verbose>

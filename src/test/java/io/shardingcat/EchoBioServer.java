@@ -75,7 +75,7 @@ public class EchoBioServer implements Runnable {
     }
 
     public static void main(String[] args) throws Exception {
-        new Thread(new EchoBioServer(8066)).start();
+        new Thread(new EchoBioServer(3307)).start();
     }
 
 }

@@ -30,9 +30,9 @@ public abstract class AbstractMultiTreadBatchTester {
 			System.out
 					.println("input param,format: [jdbcurl] [user] [password]  [threadpoolsize]  [recordrange or customer sql file] ");
 			System.out
-					.println("jdbc:mysql://localhost:8066/TESTDB test test 10  \"0-300M,300M1-600M,600M1-900M\" ");
+					.println("jdbc:mysql://localhost:3307/TESTDB test test 10  \"0-300M,300M1-600M,600M1-900M\" ");
 			System.out
-					.println("jdbc:mysql://localhost:8066/TESTDB test test 10  file=mytempate.sql ");
+					.println("jdbc:mysql://localhost:3307/TESTDB test test 10  file=mytempate.sql ");
 
 			return false;
 		}

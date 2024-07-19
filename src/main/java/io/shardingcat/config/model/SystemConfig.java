@@ -36,8 +36,8 @@ import io.shardingcat.config.Isolations;
 public final class SystemConfig {
 
 	public static final String SYS_HOME = "SHARDINGCAT_HOME";
-	private static final int DEFAULT_PORT = 8066;
-	private static final int DEFAULT_MANAGER_PORT = 9066;
+	private static final int DEFAULT_PORT = 3307;
+	private static final int DEFAULT_MANAGER_PORT = 4407;
 	private static final String DEFAULT_CHARSET = "utf8";
 
 	private static final String DEFAULT_SQL_PARSER = "druidparser";// fdbparser, druidparser

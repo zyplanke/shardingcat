@@ -218,7 +218,7 @@ shardingcat-nodes:
     state: red
     systemParams:
       defaultsqlparser : druidparser
-      serverport : 8066
+      serverport : 3307
       sequncehandlertype : 1
 
 shardingcat-mysqls:
@@ -231,14 +231,14 @@ shardingcat-mysqls:
     zone: bj
   mysql_2:
     ip: 192.168.8.3
-    port: 3307
+    port: 3306
     user: mysql
     password: mysql
     hostId: host
     zone: bj
   mysql_3:
     ip: 192.168.8.4
-    port: 3308
+    port: 3306
     user: mysql
     password: mysql
     hostId: host

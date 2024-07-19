@@ -20,8 +20,8 @@
   <!-- 系统参数定义，服务端口、管理端口，处理器个数、线程池等。 -->
   <!--
   <system>
-    <property name="serverPort">8066</property>
-    <property name="managerPort">9066</property>
+    <property name="serverPort">3307</property>
+    <property name="managerPort">4407</property>
     <property name="initExecutor">16</property>
     <property name="timerExecutor">4</property>
     <property name="managerExecutor">4</property>
