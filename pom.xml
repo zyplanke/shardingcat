@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.shardingcat</groupId>
     <artifactId>shardingcat</artifactId>
-    <version>v1.0_20240719</version>
+    <version>v1.0_20240914</version>
     <packaging>jar</packaging>
     <name>shardingcat</name>
     <description>The project of shardingcat-server</description>
@@ -414,12 +414,12 @@
                                 </systemProperties>
                                 <extraArguments>
                                     <extraArgument>-server</extraArgument>
-                                    <extraArgument>-XX:+AggressiveOpts</extraArgument>
                                     <extraArgument>-XX:MaxDirectMemorySize=2048m</extraArgument>
                                     <extraArgument>-Xms1024m</extraArgument>
                                     <extraArgument>-Xmx8192m</extraArgument>
                                     <!-- 开启jvm gc的日志输出（必须确保gclogs目录已经创建） -->
                                     <extraArgument>-verbose:gc</extraArgument>
+                                    <!-- 以下为Java8输出gc日志选项格式。 若Java版本≥9，则需要按新版Java的选项格式进行配置 -->
                                     <extraArgument>-Xloggc:gclogs/jvm_gc_StartUpTime%t.log</extraArgument>
                                     <extraArgument>-XX:+UseGCLogFileRotation</extraArgument>
                                     <extraArgument>-XX:NumberOfGCLogFiles=10</extraArgument>
@@ -512,12 +512,12 @@
                                 <!--suppress UnresolvedMavenProperty -->
                                 <mkdir dir="${temp.download.dir}"/>
                                 <!--suppress UnresolvedMavenProperty -->
-                                <get src="https://download.tanukisoftware.com/wrapper/3.5.57/wrapper-delta-pack-3.5.57.tar.gz" dest="${temp.download.dir}/wrapper-delta-pack-3.5.57.tar.gz" skipexisting="true"/>
+                                <get src="https://download.tanukisoftware.com/wrapper/3.5.59/wrapper-delta-pack-3.5.59.tar.gz" dest="${temp.download.dir}/wrapper-delta-pack-3.5.59.tar.gz" skipexisting="true"/>
                                 <!--suppress UnresolvedMavenProperty -->
-                                <untar compression="gzip" src="${temp.download.dir}/wrapper-delta-pack-3.5.57.tar.gz" dest="${temp.download.dir}"/>
+                                <untar compression="gzip" src="${temp.download.dir}/wrapper-delta-pack-3.5.59.tar.gz" dest="${temp.download.dir}"/>
                                 <copy todir="${project.build.directory}/appassembler/jsw/${project.name}/lib/" overwrite="true">
                                     <!--suppress UnresolvedMavenProperty -->
-                                    <fileset dir="${temp.download.dir}/wrapper-delta-pack-3.5.57/lib/">
+                                    <fileset dir="${temp.download.dir}/wrapper-delta-pack-3.5.59/lib/">
                                         <include name="wrapper.jar"/>   <!--用新版wrapper.jar覆盖老版本-->
                                         <include name="wrapper-windows-x86-64.dll"/>   <!--用新版库文件覆盖老版本-->
                                         <include name="libwrapper-aix-ppc-64.so"/>   <!--用新版库文件覆盖老版本-->
@@ -529,7 +529,7 @@
                                 </copy>
                                 <copy todir="${project.build.directory}/appassembler/jsw/${project.name}/bin/" overwrite="true">
                                     <!--suppress UnresolvedMavenProperty -->
-                                    <fileset dir="${temp.download.dir}/wrapper-delta-pack-3.5.57/bin/">
+                                    <fileset dir="${temp.download.dir}/wrapper-delta-pack-3.5.59/bin/">
                                         <include name="wrapper-windows-x86-64.exe"/>   <!--用新版可执行文件覆盖老版本-->
                                         <include name="wrapper-aix-ppc-64"/>   <!--用新版可执行文件覆盖老版本-->
                                         <include name="wrapper-linux-x86-64"/>   <!--用新版可执行文件覆盖老版本-->
@@ -540,11 +540,11 @@
                                 </copy>
                                 <!--用新版的bat脚本文件覆盖老版本，并替换其中的变量-->
                                 <!--suppress UnresolvedMavenProperty -->
-                                <copy file="${temp.download.dir}/wrapper-delta-pack-3.5.57/bin/DemoApp.bat" tofile="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}.bat" overwrite="true"/>
+                                <copy file="${temp.download.dir}/wrapper-delta-pack-3.5.59/bin/DemoApp.bat" tofile="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}.bat" overwrite="true"/>
                                 <replaceregexp file="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}.bat" match="demoapp.conf" replace="wrapper.conf" flags="g" byline="true"/>
                                 <!--用新版的shell脚本文件覆盖老版本，并替换其中的变量-->
                                 <!--suppress UnresolvedMavenProperty -->
-                                <copy file="${temp.download.dir}/wrapper-delta-pack-3.5.57/bin/demoapp" tofile="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}" overwrite="true"/>
+                                <copy file="${temp.download.dir}/wrapper-delta-pack-3.5.59/bin/demoapp" tofile="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}" overwrite="true"/>
                                 <replaceregexp file="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}" match="demoapp.conf" replace="wrapper.conf" flags="g" byline="true"/>
                                 <replaceregexp file="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}" match="demoapp" replace="${project.name}" flags="g" byline="true"/>
                                 <replaceregexp file="${project.build.directory}/appassembler/jsw/${project.name}/bin/${project.name}" match="Wrapper Demo Application" replace="${project.name}" flags="g" byline="true"/>

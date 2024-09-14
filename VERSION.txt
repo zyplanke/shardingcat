@@ -8,13 +8,13 @@
 projectName=shardingcat
 
 #工程版本号(等于Maven工程配置的版本号)
-projectVersion=v1.0_20240719
+projectVersion=v1.0_20240914
 
 #通过Maven进行build时 日期时间戳
-buildTime=2024-07-19T10:31:46+0800
+buildTime=2024-09-14T16:41:26+0800
 
 #通过Maven进行build时 Git的HEAD指针指向的CommitHash(通常为所在Git Branch分支的最新提交记录)，40位的全格式
-buildOfGitCommitHash=753ff7c1c22464e1ef667e442f55f77799b0303e
+buildOfGitCommitHash=70fa8832949826ca0c01b25d22cd5c9929c7ea13
 
 #通过Maven进行build时 所用主机名
 buildHost=YOGA260ZYP

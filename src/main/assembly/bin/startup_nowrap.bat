@@ -14,4 +14,4 @@ set "CURR_DIR=%cd%"
 cd ..
 set "SHARDINGCAT_HOME=%cd%"
 cd %CURR_DIR%
-"%JAVA_CMD%" -server -Xms1G -Xmx2G -XX:MaxPermSize=64M  -XX:+AggressiveOpts -XX:MaxDirectMemorySize=1G -DSHARDINGCAT_HOME=%SHARDINGCAT_HOME% -cp "..\conf;..\lib\*" io.shardingcat.ShardingCatStartup
+"%JAVA_CMD%" -server -Xms1G -Xmx2G -XX:MaxPermSize=64M -XX:MaxDirectMemorySize=1G -DSHARDINGCAT_HOME=%SHARDINGCAT_HOME% -cp "..\conf;..\lib\*" io.shardingcat.ShardingCatStartup
