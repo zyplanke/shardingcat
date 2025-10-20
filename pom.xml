@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.shardingcat</groupId>
     <artifactId>shardingcat</artifactId>
-    <version>v1.0_20240914</version>
+    <version>300.888_20250916</version>
     <packaging>jar</packaging>
     <name>shardingcat</name>
     <description>The project of shardingcat-server</description>
@@ -262,6 +262,7 @@
                 </executions>
             </plugin>
             <plugin>
+                <!-- 将工程信息、以及上步已获取GIT等相关信息，存入${version.file}文件中 -->
                 <groupId>com.google.code.maven-replacer-plugin</groupId>
                 <artifactId>replacer</artifactId>
                 <version>1.5.3</version>
@@ -328,6 +329,7 @@
             </plugin>
 
             <plugin>
+                <!-- (可选)将Java源代码直接打包，源代码包的后缀为sources.jar -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>3.2.1</version>
@@ -345,21 +347,22 @@
             </plugin>
 
             <plugin>
+                 <!-- 对本工程编译生成得到jar文件 -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.2.2</version>
                 <configuration>
-                    <excludes>
-                        <exclude>**/.svn/**</exclude>
-                    </excludes>
+                    <archive>
+                        <manifest>
+                            <!--  生成MANIFEST.MF文件中是否包含依赖类路径 -->
+<!--                            <addClasspath>true</addClasspath>-->
+                            <!-- 生成MANIFEST.MF文件中:依赖类路径前缀 -->
+<!--                            <classpathPrefix>./lib/</classpathPrefix>-->
+                            <!--  生成MANIFEST.MF文件中:主类 -->
+                            <mainClass>io.shardingcat.ShardingCatStartup</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>test-jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
 
             <plugin>
@@ -384,7 +387,7 @@
             </plugin>
 
             <plugin>
-                <!--生成可直接启动应用程序(包括可执行的JDK、依赖jar等)的插件。 其官网 https://www.mojohaus.org/plugins.html -->
+                <!--生成可直接启动应用程序(包括可执行的JDK、依赖jar等)的目录结构。插件官网 https://www.mojohaus.org/plugins.html -->
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>appassembler-maven-plugin</artifactId>
                 <version>1.10</version>
@@ -555,7 +558,7 @@
             </plugin>
 
             <plugin>
-                <!-- 然后打包为可发布的zip/tar文件(打包的内容、目标格式由descriptor的配置文件定义) -->
+                <!-- 然后将目录结构打包压缩为可发布的zip/tar文件(打包的内容、目标格式由descriptor的配置文件定义) -->
                 <!-- 本插件用途官网描述为：combine project output into a single distributable archive that also contains dependencies, modules, site documentation, and other files -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>

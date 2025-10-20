@@ -34,7 +34,7 @@ public class Versions {
             String projectName = prop.getProperty("projectName");
             String projectVersion = prop.getProperty("projectVersion");
             String buildTime = prop.getProperty("buildTime");
-            SERVER_VERSION = (projectName + "-" + projectVersion + "-" + buildTime).getBytes();
+            SERVER_VERSION = (projectName + " " + projectVersion + " " + buildTime).getBytes();
         } catch (IOException ex) {
             LOGGER.error("遇到异常:", ex);
         }
